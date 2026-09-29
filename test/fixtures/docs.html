@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lekho fixture: Google Docs-like editor</title>
+    <style>
+      body { font: 16px system-ui, sans-serif; margin: 2rem; }
+      #page { position: relative; width: 36rem; min-height: 8rem; border: 1px solid #888; padding: 1rem; white-space: pre-wrap; }
+      .kix-cursor-caret { display: inline-block; width: 2px; height: 1.2em; background: #000; vertical-align: text-bottom; }
+      .docs-texteventtarget-iframe { position: absolute; top: -10000px; left: 0; width: 1px; height: 1px; border: 0; }
+    </style>
+  </head>
+  <body>
+    <h1>Docs-like editor</h1>
+    <p>
+      Like Google Docs, typing goes to a hidden iframe whose text is moved into the document model and cleared, and the
+      visible caret is drawn by the page.
+    </p>
+    <div id="page" aria-label="document" role="document"><span id="text"></span><span class="kix-cursor-caret"></span></div>
+    <iframe class="docs-texteventtarget-iframe" tabindex="-1" title="Docs input"></iframe>
+    <script>
+      (function () {
+        const frame = document.querySelector('.docs-texteventtarget-iframe');
+        const d = frame.contentDocument;
+        d.open();
+        d.write('<!doctype html><html><body contenteditable="true" role="textbox" aria-label="Docs input"></body></html>');
+        d.close();
+        const text = document.getElementById('text');
+        let model = '';
+        const render = () => {
+          text.textContent = model;
+          document.body.dataset.model = model;
+        };
+        // Docs moves whatever lands in the input frame into its model and clears the frame.
+        d.body.addEventListener('input', () => {
+          // A trailing space in contenteditable is stored as a no-break space; Docs normalizes it.
+          const t = d.body.textContent.replace(/\u00a0/g, ' ');
+          if (t) {
+            model += t;
+            d.body.textContent = '';
+            render();
+          }
+        });
+        d.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && d.body.textContent === '') {
+            model = model.slice(0, -1);
+            render();
+            e.preventDefault();
+          } else if (e.key === 'Enter') {
+            model += '\n';
+            render();
+            e.preventDefault();
+          }
+        });
+        render();
+        window.focusDocsInput = () => d.body.focus();
+      })();
+    </script>
+  </body>
+</html>

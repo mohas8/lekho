@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lekho fixture: rich editors</title>
+    <style>
+      body { font: 16px system-ui, sans-serif; margin: 2rem; }
+      h2 { font-size: 1rem; margin: 1.5rem 0 0.25rem; }
+      [contenteditable], input, textarea { font: inherit; width: 30rem; min-height: 1.5rem; padding: 0.25rem; border: 1px solid #888; display: block; }
+      iframe { width: 34rem; height: 7rem; border: 1px solid #888; }
+    </style>
+  </head>
+  <body>
+    <h1>Rich editors</h1>
+
+    <h2 id="ce-label">Plain contenteditable</h2>
+    <div id="ce" contenteditable="true" role="textbox" aria-labelledby="ce-label"></div>
+
+    <h2 id="ce-rich-label">Contenteditable with existing formatted text</h2>
+    <div id="ce-rich" contenteditable="true" role="textbox" aria-labelledby="ce-rich-label"><p>hello <b>world</b></p></div>
+
+    <h2 id="model-label">Model editor (cancels beforeinput and re-renders, like Lexical)</h2>
+    <div id="model" contenteditable="true" role="textbox" aria-labelledby="model-label"></div>
+
+    <h2>Shadow DOM editors</h2>
+    <shadow-editors id="shadow"></shadow-editors>
+
+    <h2>Same-origin iframe</h2>
+    <iframe id="frame" src="/frame.html" title="same-origin editor frame"></iframe>
+
+    <h2>srcdoc iframe with designMode</h2>
+    <iframe
+      id="srcdoc"
+      title="design mode frame"
+      srcdoc="<!doctype html><html><body style='font:16px system-ui'></body><script>document.designMode='on'</script></html>"
+    ></iframe>
+
+    <div id="dynamic-slot"></div>
+
+    <script>
+      // Minimal model-driven editor: every edit is cancelled and applied to a
+      // string model, then the whole text is re-rendered into a new text node.
+      (function () {
+        const el = document.getElementById('model');
+        let model = '';
+        function render(caret) {
+          el.replaceChildren(document.createTextNode(model));
+          const text = el.firstChild;
+          const sel = document.getSelection();
+          sel.collapse(text, caret);
+          el.dataset.model = model;
+        }
+        function offsets(e) {
+          // Real editors track the selection themselves; synthetic events have no target ranges.
+          const r = e.getTargetRanges()[0] ?? (document.getSelection().rangeCount ? document.getSelection().getRangeAt(0) : null);
+          if (!r) return [model.length, model.length];
+          const map = (node, off) => (node.nodeType === 3 ? off : off === 0 ? 0 : model.length);
+          return [map(r.startContainer, r.startOffset), map(r.endContainer, r.endOffset)];
+        }
+        el.addEventListener('beforeinput', (e) => {
+          e.preventDefault();
+          const [s, t] = offsets(e);
+          if (e.inputType === 'insertText' || e.inputType === 'insertReplacementText') {
+            const data = e.data ?? '';
+            model = model.slice(0, s) + data + model.slice(t);
+            render(s + data.length);
+          } else if (e.inputType.startsWith('delete')) {
+            const from = s === t && e.inputType === 'deleteContentBackward' ? Math.max(0, s - 1) : s;
+            const to = s === t && e.inputType === 'deleteContentForward' ? Math.min(model.length, t + 1) : t;
+            model = model.slice(0, from) + model.slice(to);
+            render(from);
+          }
+        });
+      })();
+
+      customElements.define(
+        'shadow-editors',
+        class extends HTMLElement {
+          connectedCallback() {
+            const root = this.attachShadow({ mode: 'open' });
+            const input = document.createElement('input');
+            input.id = 'shadow-input';
+            input.setAttribute('aria-label', 'shadow input');
+            const ce = document.createElement('div');
+            ce.id = 'shadow-ce';
+            ce.contentEditable = 'true';
+            ce.setAttribute('role', 'textbox');
+            ce.setAttribute('aria-label', 'shadow editor');
+            ce.style.cssText = 'border:1px solid #888;min-height:1.5rem;width:30rem;margin-top:.5rem';
+            root.append(input, ce);
+          }
+        },
+      );
+
+      window.addDynamicFrame = function () {
+        const f = document.createElement('iframe');
+        f.id = 'dynamic';
+        f.title = 'dynamic frame';
+        f.src = '/frame.html?dynamic';
+        document.getElementById('dynamic-slot').append(f);
+      };
+    </script>
+  </body>
+</html>

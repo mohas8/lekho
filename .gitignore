@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-test/
+release/
+test/fixtures/dist/
+test-results/
+playwright-report/
+.cache/

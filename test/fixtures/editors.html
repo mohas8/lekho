@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lekho fixture: editor libraries</title>
+    <style>
+      body { font: 16px system-ui, sans-serif; margin: 2rem; }
+      h2 { font-size: 1rem; margin: 1.5rem 0 0.25rem; }
+      #lexical, #pm, .ql-editor { border: 1px solid #888; min-height: 1.5rem; width: 30rem; padding: 0.25rem; white-space: pre-wrap; outline: none; }
+      #pm p, #lexical p, .ql-editor p { margin: 0; }
+    </style>
+  </head>
+  <body>
+    <h1>Editor libraries</h1>
+    <h2 id="lexical-label">Lexical</h2>
+    <div id="lexical" contenteditable="true" role="textbox" aria-labelledby="lexical-label"></div>
+    <h2>ProseMirror</h2>
+    <div id="pm-mount"></div>
+    <h2>Quill</h2>
+    <div id="quill-mount"></div>
+    <script src="/fixtures-dist/editors.js"></script>
+  </body>
+</html>

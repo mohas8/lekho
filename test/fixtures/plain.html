@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lekho fixture: plain fields</title>
+    <style>
+      body { font: 16px system-ui, sans-serif; margin: 2rem; }
+      label { display: block; margin: 1rem 0 0.25rem; }
+      input, textarea { font: inherit; width: 30rem; padding: 0.25rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Plain fields</h1>
+    <label for="text">Text input</label>
+    <input id="text" type="text" />
+    <label for="search">Search input</label>
+    <input id="search" type="search" />
+    <label for="area">Textarea</label>
+    <textarea id="area" rows="4"></textarea>
+    <label for="password">Password</label>
+    <input id="password" type="password" />
+    <label for="email">Email</label>
+    <input id="email" type="email" />
+    <label for="otp">One-time code</label>
+    <input id="otp" type="text" autocomplete="one-time-code" />
+    <label for="shown-password">Password shown as text</label>
+    <input id="shown-password" type="text" autocomplete="current-password" />
+    <label for="readonly">Read-only</label>
+    <input id="readonly" type="text" readonly value="fixed" />
+    <script src="/content.js"></script>
+  </body>
+</html>

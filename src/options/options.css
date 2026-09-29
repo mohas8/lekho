@@ -1,0 +1,140 @@
+:root {
+  color-scheme: light dark;
+  --fg: #1f1f1f;
+  --muted: #474747;
+  --bg: #ffffff;
+  --line: #c4c7c5;
+  --accent: #0b57d0;
+  --accent-fg: #ffffff;
+  --code-bg: #eef1f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #e3e3e3;
+    --muted: #c4c7c5;
+    --bg: #1f1f1f;
+    --line: #5e5e5e;
+    --accent: #a8c7fa;
+    --accent-fg: #062e6f;
+    --code-bg: #303134;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font: 1rem/1.5 system-ui, "Noto Sans Bengali", "Nirmala UI", sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.lead,
+.hint {
+  color: var(--muted);
+}
+
+.hint {
+  margin: 0.1rem 0 0;
+  font-size: 0.9rem;
+}
+
+.setting {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin: 0.9rem 0;
+}
+
+.setting input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0.2rem 0 0;
+  flex: none;
+  accent-color: var(--accent);
+}
+
+label {
+  font-weight: 600;
+}
+
+button {
+  font: inherit;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-fg);
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+kbd,
+code {
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  background: var(--code-bg);
+  border-radius: 0.3rem;
+  padding: 0.05rem 0.35rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+td[lang="bn"] {
+  font-size: 1.15rem;
+}
+
+.status {
+  min-height: 1.5rem;
+  font-weight: 600;
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

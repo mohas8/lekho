@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lekho settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Lekho settings</h1>
+        <p class="lead">
+          Ridmik-style Bangla phonetic typing on any web page. Click the Lekho icon, or press the shortcut, to turn it on
+          for a tab.
+        </p>
+      </header>
+
+      <section aria-labelledby="typing-heading">
+        <h2 id="typing-heading">Typing</h2>
+        <div class="setting">
+          <input type="checkbox" id="suggestions" name="suggestions" aria-describedby="suggestions-hint" />
+          <div>
+            <label for="suggestions">Show word suggestions</label>
+            <p class="hint" id="suggestions-hint">
+              A list of dictionary words appears under the word you type. The Ridmik result is always first and chosen
+              by default.
+            </p>
+          </div>
+        </div>
+        <div class="setting">
+          <input type="checkbox" id="rememberChoices" name="rememberChoices" aria-describedby="remember-hint" />
+          <div>
+            <label for="rememberChoices">Remember my choices</label>
+            <p class="hint" id="remember-hint">
+              When you pick a different word from the list, it is chosen by default the next time you type the same
+              English word. Stored only on this device.
+            </p>
+          </div>
+        </div>
+        <div class="setting">
+          <input type="checkbox" id="banglaDigits" name="banglaDigits" aria-describedby="digits-hint" />
+          <div>
+            <label for="banglaDigits">Bangla digits</label>
+            <p class="hint" id="digits-hint">Type <kbd>2026</kbd> to get ২০২৬.</p>
+          </div>
+        </div>
+        <div class="setting">
+          <input type="checkbox" id="dotToDari" name="dotToDari" aria-describedby="dari-hint" />
+          <div>
+            <label for="dotToDari">Full stop becomes দাঁড়ি (।)</label>
+            <p class="hint" id="dari-hint">Decimal points (১০.৫) and ellipses (...) are kept.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="learned-heading">
+        <h2 id="learned-heading">Learned words</h2>
+        <p id="learned-count">No remembered choices yet.</p>
+        <button type="button" id="clear-learned">Clear learned words</button>
+      </section>
+
+      <section aria-labelledby="shortcut-heading">
+        <h2 id="shortcut-heading">Keyboard shortcut</h2>
+        <p>Turn Bangla typing on or off in the current tab: <kbd id="shortcut">not set</kbd></p>
+        <button type="button" id="change-shortcut">Change shortcut</button>
+      </section>
+
+      <section aria-labelledby="guide-heading">
+        <h2 id="guide-heading">Coming from Avro?</h2>
+        <p>Lekho follows the Ridmik rules. These signs are typed differently from Avro Phonetic:</p>
+        <table>
+          <caption class="sr">Ridmik and Avro input for the same Bangla</caption>
+          <thead>
+            <tr>
+              <th scope="col">Sign</th>
+              <th scope="col">Bangla</th>
+              <th scope="col">Type in Lekho (Ridmik)</th>
+              <th scope="col">Type in Avro</th>
+            </tr>
+          </thead>
+          <tbody id="guide"></tbody>
+        </table>
+      </section>
+
+      <section aria-labelledby="privacy-heading">
+        <h2 id="privacy-heading">Privacy</h2>
+        <p>
+          Everything happens on your device. Lekho has no servers, sends nothing over the network, and only reads a
+          page after you turn it on for that tab. Password and one-time-code fields are never touched.
+        </p>
+      </section>
+
+      <p id="status" role="status" aria-live="polite" class="status"></p>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>
