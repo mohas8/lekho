@@ -15,7 +15,7 @@ with `npm run package` (writes `release/lekho-<version>.zip`).
 **Summary** (from the manifest description; 132 characters max):
 
 ```
-Type Bangla on any web page with Ridmik-style phonetic rules and word suggestions. Works offline; nothing you type leaves your device.
+Type Bangla on any web page with Ridmik-style phonetic rules and word suggestions. Offline; nothing you type leaves your device.
 ```
 
 **Description:**

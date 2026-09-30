@@ -6,6 +6,7 @@ describe('manifest', () => {
     const m = buildManifest('production', '1.2.3');
     expect(m.name).toBe('Lekho — Ridmik Bangla Phonetic Keyboard');
     expect(m.name.length).toBeLessThanOrEqual(75); // Chrome's limit
+    expect(m.description!.length).toBeLessThanOrEqual(132); // Web Store rejects longer descriptions
     expect(m.homepage_url).toBe('https://mobashir.dev/lekho');
     expect(m.version).toBe('1.2.3');
     expect(m.permissions).toEqual(['activeTab', 'scripting', 'storage']);

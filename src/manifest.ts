@@ -39,7 +39,7 @@ export function buildManifest(mode: BuildMode, version: string): chrome.runtime.
     // Chrome links the extension's name at the top of the toolbar icon's right-click menu to this page.
     homepage_url: HOMEPAGE_URL,
     description:
-      'Type Bangla on any web page with Ridmik-style phonetic rules and word suggestions. Works offline; nothing you type leaves your device.',
+      'Type Bangla on any web page with Ridmik-style phonetic rules and word suggestions. Offline; nothing you type leaves your device.',
     minimum_chrome_version: '120',
     permissions: ['activeTab', 'scripting', 'storage'],
     background: { service_worker: 'service-worker.js' },
