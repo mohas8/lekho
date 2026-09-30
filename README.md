@@ -40,17 +40,33 @@ Website: [mobashir.dev/lekho](https://mobashir.dev/lekho) · Made by [Md Mobashi
 
 ## Install
 
-From the Chrome Web Store (once published), or from source:
+**From a release (no build needed):**
+
+1. Download `lekho-<version>.zip` from the [latest release](https://github.com/mohas8/lekho/releases/latest) and
+   extract it to a folder you'll keep (Chrome loads the extension from there).
+2. Open `chrome://extensions` (or `brave://extensions`, `edge://extensions`) and turn on **Developer mode**.
+3. Click **Load unpacked** and choose the extracted folder.
+
+A Chrome Web Store version is coming.
+
+**From source:**
 
 ```sh
 npm ci
 npm run build          # production build in dist/
 ```
 
-Then open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked** and choose the `dist/` folder.
+Then load the `dist/` folder with **Load unpacked** as above.
 To make a store zip: `npm run package` (writes `release/lekho-<version>.zip`).
 
-Requires Node 20.19 or later to build, and Chrome 120 or later to run.
+Requires Node 20.19 or later to build, and Chrome 120 or later (or another Chromium browser) to run.
+
+## Help make it exact
+
+Lekho should give exactly what the Ridmik keyboard gives on your phone. If a word comes out differently,
+[report it](https://github.com/mohas8/lekho/issues/new?template=wrong-output.yml) with what you typed, what Ridmik
+shows and what Lekho shows. Each report becomes a test case. Ideas and questions go in
+[Discussions](https://github.com/mohas8/lekho/discussions).
 
 ## Use
 

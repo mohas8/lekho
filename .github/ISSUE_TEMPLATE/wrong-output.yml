@@ -1,0 +1,50 @@
+name: Wrong Bangla output
+description: Lekho gives different Bangla than the Ridmik keyboard for the same English letters.
+title: "Wrong output: "
+labels: ["ridmik-parity"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Lekho aims to give **exactly** what the Ridmik keyboard on Android gives for the same English letters.
+        Every report becomes a test case, so please type the word in Ridmik on your phone first and copy what it shows.
+  - type: input
+    id: typed
+    attributes:
+      label: What you typed (English letters, exactly)
+      description: Case matters. For example `korrmo`, `hoThaTH`, `Ononto`.
+      placeholder: korrmo
+    validations:
+      required: true
+  - type: input
+    id: ridmik
+    attributes:
+      label: What Ridmik shows (on Android)
+      placeholder: কর্ম
+    validations:
+      required: true
+  - type: input
+    id: lekho
+    attributes:
+      label: What Lekho shows
+      description: The first suggestion, or the text that appears in the page.
+      placeholder: করম
+    validations:
+      required: true
+  - type: input
+    id: ridmik-version
+    attributes:
+      label: Ridmik Keyboard version
+      description: Android Settings → Apps → Ridmik Keyboard. Rules can change between versions.
+      placeholder: "18.5.2"
+  - type: input
+    id: lekho-version
+    attributes:
+      label: Lekho version
+      description: Shown on chrome://extensions.
+      placeholder: "0.1.0"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: The sentence you were typing, or other words that go wrong the same way.

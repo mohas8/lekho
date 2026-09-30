@@ -1,0 +1,42 @@
+name: Bug report
+description: Something doesn't work on a website, or the extension misbehaves.
+labels: ["bug"]
+body:
+  - type: input
+    id: site
+    attributes:
+      label: Website and field
+      description: For example "Gmail compose body", "Facebook comment box", "WhatsApp Web message box".
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: What you did and what happened
+      placeholder: |
+        1. Clicked the Lekho icon (badge showed বাং)
+        2. Typed "ami korrmo kori"
+        3. Got ... instead of আমি কর্ম করি
+    validations:
+      required: true
+  - type: input
+    id: badge
+    attributes:
+      label: What did the Lekho badge show?
+      description: বাং, EN, !, or nothing
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      description: chrome://version (Chrome, Brave, Edge, ...)
+      placeholder: Chrome 140 on Windows 11
+    validations:
+      required: true
+  - type: input
+    id: lekho-version
+    attributes:
+      label: Lekho version
+      placeholder: "0.1.0"
+  - type: markdown
+    attributes:
+      value: Please don't paste passwords or private messages. Lekho never reads password fields.
