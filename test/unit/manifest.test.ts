@@ -4,6 +4,9 @@ import { buildManifest } from '../../src/manifest';
 describe('manifest', () => {
   it('production build requests no host permissions', () => {
     const m = buildManifest('production', '1.2.3');
+    expect(m.name).toBe('Lekho — Ridmik Bangla Phonetic Keyboard');
+    expect(m.name.length).toBeLessThanOrEqual(75); // Chrome's limit
+    expect(m.homepage_url).toBe('https://mobashir.dev/lekho');
     expect(m.version).toBe('1.2.3');
     expect(m.permissions).toEqual(['activeTab', 'scripting', 'storage']);
     expect(m.host_permissions).toBeUndefined();

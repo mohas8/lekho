@@ -12,6 +12,17 @@ export type BuildMode = 'production' | 'test';
 
 export const TOGGLE_COMMAND = 'toggle-bangla';
 
+export const PRODUCT_NAME = 'Lekho — Ridmik Bangla Phonetic Keyboard';
+/** mobashir.dev is on the HSTS preload list (.dev TLD), so browsers always use https. */
+export const HOMEPAGE_URL = 'https://mobashir.dev/lekho';
+
+export const AUTHOR = {
+  name: 'Md Mobashir Hasan',
+  website: 'https://mobashir.dev',
+  github: 'https://github.com/mohas8',
+  linkedin: 'https://www.linkedin.com/in/mohas8',
+} as const;
+
 const icons = {
   '16': 'icons/icon16.png',
   '32': 'icons/icon32.png',
@@ -22,9 +33,11 @@ const icons = {
 export function buildManifest(mode: BuildMode, version: string): chrome.runtime.ManifestV3 {
   const manifest: chrome.runtime.ManifestV3 = {
     manifest_version: 3,
-    name: mode === 'test' ? 'Lekho (test build)' : 'Lekho – Bangla Phonetic Keyboard',
+    name: mode === 'test' ? 'Lekho (test build)' : PRODUCT_NAME,
     short_name: 'Lekho',
     version,
+    // Chrome links the extension's name at the top of the toolbar icon's right-click menu to this page.
+    homepage_url: HOMEPAGE_URL,
     description:
       'Type Bangla on any web page with Ridmik-style phonetic rules and word suggestions. Works offline; nothing you type leaves your device.',
     minimum_chrome_version: '120',

@@ -4,7 +4,15 @@ Text for the store listing. Keep it in sync with `README.md` and `PRIVACY.md`.
 
 ## Name
 
-Lekho – Bangla Phonetic Keyboard
+Lekho — Ridmik Bangla Phonetic Keyboard
+
+## Website
+
+https://mobashir.dev/lekho (also the manifest's `homepage_url`)
+
+## Developer
+
+Md Mobashir Hasan · https://mobashir.dev · https://github.com/mohas8 · https://www.linkedin.com/in/mohas8
 
 ## Summary (up to 132 characters)
 
@@ -37,6 +45,8 @@ Coming from Avro? A few signs are typed differently; the settings page has a sid
 
 Lekho isn't affiliated with Ridmik Labs or OmicronLab (Avro). It uses the open-source Ridmik Parser (BSD license) and
 the Avro Phonetic dictionary from ibus-avro (MPL 2.0).
+
+Made by Md Mobashir Hasan (mobashir.dev). Open source: github.com/mohas8/lekho
 
 ## Single purpose
 

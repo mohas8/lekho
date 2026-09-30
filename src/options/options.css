@@ -129,6 +129,23 @@ td[lang="bn"] {
   font-weight: 600;
 }
 
+a {
+  color: var(--accent);
+}
+
+.credits {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.credits p {
+  margin: 0.4rem 0;
+}
+
 .sr {
   position: absolute;
   width: 1px;

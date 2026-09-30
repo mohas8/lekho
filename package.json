@@ -4,6 +4,15 @@
   "private": true,
   "description": "Ridmik-style Bangla phonetic typing for Chrome: type Bangla directly on web pages, offline.",
   "license": "MPL-2.0",
+  "author": "Md Mobashir Hasan (https://mobashir.dev)",
+  "homepage": "https://mobashir.dev/lekho",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohas8/lekho.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mohas8/lekho/issues"
+  },
   "type": "module",
   "engines": {
     "node": ">=20.19.0"

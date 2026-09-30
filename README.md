@@ -1,4 +1,4 @@
-# Lekho – Ridmik-style Bangla phonetic typing for Chrome
+# Lekho — Ridmik Bangla Phonetic Keyboard
 
 Lekho lets you type Bangla directly on web pages with the phonetic rules of the Ridmik keyboard for Android. The
 same English letters give the same Bangla as on your phone, in Gmail, Facebook, WhatsApp Web, Slack, Notion and
@@ -7,6 +7,8 @@ most other sites. It works offline, and nothing you type leaves your device.
 ```
 ami korrmo kori   →   আমি কর্ম করি
 ```
+
+Website: [mobashir.dev/lekho](https://mobashir.dev/lekho) · Made by [Md Mobashir Hasan](https://mobashir.dev)
 
 ## Why
 
@@ -102,8 +104,16 @@ The first time, install Playwright's browser: `npx playwright install chromium`.
 - `src/sw/`: the service worker. It manages which tabs are on, the badge, the suggestion service and learned choices.
 - `src/options/`: the settings page.
 
+## Author
+
+Made by **Md Mobashir Hasan**
+
+- Website: [mobashir.dev](https://mobashir.dev)
+- GitHub: [github.com/mohas8](https://github.com/mohas8)
+- LinkedIn: [linkedin.com/in/mohas8](https://www.linkedin.com/in/mohas8)
+
 ## License
 
 [MPL-2.0](LICENSE). Includes the Ridmik Parser (BSD-3-Clause) and the Avro Phonetic dictionary and search from
-ibus-avro (MPL-2.0); see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Lekho isn't affiliated with Ridmik Labs or
-OmicronLab.
+ibus-avro (MPL-2.0); see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Lekho isn't affiliated with or endorsed by
+Ridmik Labs or OmicronLab; "Ridmik" and "Avro" name the typing styles it is compatible with.

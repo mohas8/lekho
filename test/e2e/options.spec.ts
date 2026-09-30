@@ -36,6 +36,23 @@ test.describe('options page', () => {
     await expect(page.getByRole('button', { name: 'Clear learned words' })).toBeDisabled();
   });
 
+  test('credits the author with working links', async ({ context, extensionId }) => {
+    const page = await openOptions(context, extensionId);
+    const footer = page.getByRole('contentinfo');
+    await expect(footer).toContainText('Md Mobashir Hasan');
+    for (const [name, href] of [
+      ['Lekho', 'https://mobashir.dev/lekho'],
+      ['mobashir.dev', 'https://mobashir.dev'],
+      ['GitHub', 'https://github.com/mohas8'],
+      ['LinkedIn', 'https://www.linkedin.com/in/mohas8'],
+      ['github.com/mohas8/lekho', 'https://github.com/mohas8/lekho'],
+    ] as const) {
+      const link = footer.getByRole('link', { name, exact: true });
+      await expect(link).toHaveAttribute('href', href);
+      await expect(link).toHaveAttribute('rel', /noopener/);
+    }
+  });
+
   test('turning digits off applies to an open tab without reloading', async ({ context, serviceWorker: sw, extensionId }) => {
     const tab = await openEnabled(context, sw);
     const options = await openOptions(context, extensionId);
