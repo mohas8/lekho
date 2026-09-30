@@ -28,7 +28,8 @@
     "ridmik": "tsx scripts/ridmik-cli.ts",
     "suggest": "tsx scripts/suggest-cli.ts",
     "icons": "tsx scripts/gen-icons.ts",
-    "package": "npm run build && tsx scripts/package.ts"
+    "package": "npm run build && tsx scripts/package.ts",
+    "store-assets": "npm run build:test && tsx scripts/store-assets.ts"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
