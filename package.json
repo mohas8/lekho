@@ -23,13 +23,16 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:e2e": "npm run build:test && npm run package && tsx scripts/build-fixtures.ts && playwright test",
+    "test:e2e": "npm run build:test && npm run package && tsx scripts/build-fixtures.ts && npm run site:build && playwright test",
     "fixtures": "npm run build:test && tsx scripts/fixtures-server.ts",
     "ridmik": "tsx scripts/ridmik-cli.ts",
     "suggest": "tsx scripts/suggest-cli.ts",
     "icons": "tsx scripts/gen-icons.ts",
     "package": "npm run build && tsx scripts/package.ts",
-    "store-assets": "npm run build:test && tsx scripts/store-assets.ts"
+    "store-assets": "npm run build:test && tsx scripts/store-assets.ts",
+    "site:dev": "vite --config site/vite.config.ts",
+    "site:build": "vite build --config site/vite.config.ts",
+    "site:preview": "vite preview --config site/vite.config.ts"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

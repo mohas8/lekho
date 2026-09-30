@@ -100,6 +100,11 @@ test.describe('popup in rich editors', () => {
     const before = (await popup(page).boundingBox())!;
     await page.evaluate(() => window.scrollBy(0, 60));
     await expect.poll(async () => Math.round((await popup(page).boundingBox())!.y)).toBe(Math.round(before.y - 60));
+    // Scrolled far enough that the word is off screen: the list hides instead of sticking to the edge.
+    await page.evaluate(() => window.scrollBy(0, 2000));
+    await expect(popup(page)).toBeHidden();
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await expect(popup(page)).toBeVisible();
   });
 
   test('shadow DOM editor gets the popup too', async ({ context, serviceWorker: sw }) => {

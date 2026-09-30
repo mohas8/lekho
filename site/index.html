@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lekho — Ridmik Bangla Phonetic Keyboard for Chrome</title>
+    <meta
+      name="description"
+      content="Type Bangla on any website with the same phonetic rules as the Ridmik keyboard. Word suggestions, works offline, nothing you type leaves your device. Free and open source."
+    />
+    <link rel="canonical" href="https://www.mobashir.dev/lekho" />
+    <link rel="icon" href="/lekho/favicon.png" type="image/png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lekho — Ridmik Bangla Phonetic Keyboard" />
+    <meta property="og:description" content="Type Bangla on any website, the Ridmik way. Offline and private." />
+    <meta property="og:url" content="https://www.mobashir.dev/lekho" />
+    <meta property="og:image" content="https://www.mobashir.dev/lekho/img/promo-marquee-1400x560.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#006a4e" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Lekho — Ridmik Bangla Phonetic Keyboard",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome, Edge, Brave and other Chromium browsers",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "url": "https://www.mobashir.dev/lekho",
+        "downloadUrl": "https://github.com/mohas8/lekho/releases/latest",
+        "license": "https://www.mozilla.org/MPL/2.0/",
+        "author": { "@type": "Person", "name": "Md Mobashir Hasan", "url": "https://mobashir.dev" }
+      }
+    </script>
+  </head>
+  <body data-bangla="on">
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="top">
+      <div class="wrap bar">
+        <a class="brand" href="/lekho/"><img src="/lekho/img/icon128.png" alt="" width="32" height="32" />Lekho</a>
+        <nav aria-label="Main">
+          <a href="#try">Try it</a>
+          <a href="#why">Why Lekho</a>
+          <a href="#install">Install</a>
+          <a href="https://github.com/mohas8/lekho">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap hero-grid">
+          <div>
+            <h1 id="hero-title">Type Bangla on any website, <span class="accent">the Ridmik way.</span></h1>
+            <p class="lead">
+              Lekho is a free Chrome extension that uses the same phonetic rules as the Ridmik keyboard on your phone.
+              It types right into Gmail, Facebook, WhatsApp Web and every other site, offline, and nothing you type
+              leaves your device.
+            </p>
+            <p class="cta">
+              <a class="btn primary" href="#install">Install Lekho</a>
+              <a class="btn" href="#try">Try it here</a>
+            </p>
+            <p class="meta">Chrome, Edge, Brave and other Chromium browsers · Open source (MPL-2.0)</p>
+          </div>
+
+          <div class="play" id="try" aria-labelledby="try-title">
+            <div class="play-head">
+              <h2 id="try-title">Try it: type in English letters</h2>
+              <button type="button" id="toggle" class="toggle" aria-pressed="true" title="Ctrl+Shift+Space">বাংলা</button>
+            </div>
+            <label for="pad" class="sr">Playground: type phonetically to get Bangla</label>
+            <textarea id="pad" rows="5" spellcheck="false" autocomplete="off" placeholder="ami tomake bhalobashi"></textarea>
+            <p class="play-foot">
+              <span id="mode" role="status">Bangla typing is on</span>
+              <span id="hint" class="hint">Try <kbd>korrmo</kbd>, <kbd>kormo</kbd>, then ↓ and Space</span>
+              <button type="button" id="clear" class="link">Clear</button>
+            </p>
+            <p class="examples">
+              Examples:
+              <button type="button" data-try="ami korrmo kori" class="chip">ami korrmo kori</button>
+              <button type="button" data-try="amar sOnar bangla" class="chip">amar sOnar bangla</button>
+              <button type="button" data-try="hoThaTH caqqd" class="chip">hoThaTH caqqd</button>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="why" aria-labelledby="why-title">
+        <div class="wrap">
+          <h2 id="why-title">Why Lekho</h2>
+          <div class="cards">
+            <article class="card">
+              <h3>The rules you already know</h3>
+              <p>
+                If you type Bangla on your phone with Ridmik, Lekho gives the same result on your computer:
+                <code>korrmo</code> → কর্ম, <code>TH</code> → ৎ, <code>qq</code> → ঁ. Its engine is a port of the
+                open-source Ridmik Parser, checked against the original on more than 20,000 inputs.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Types right in the page</h3>
+              <p>
+                No popup to copy from. Lekho writes into the text box you're using: plain fields and rich editors such
+                as Gmail, Facebook, Messenger, WhatsApp Web, X, Slack and Notion. Undo works as usual.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Suggestions that don't get in the way</h3>
+              <p>
+                A 150,000-word dictionary suggests spellings as you type. The Ridmik result is always first, so
+                Space keeps what you typed; press ↓ to pick another word. Lekho can remember your picks.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Private by design</h3>
+              <p>
+                Works offline with no servers or tracking. It can only read a tab after you click its icon there, and
+                it never touches password or one-time-code fields.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" aria-labelledby="shots-title">
+        <div class="wrap">
+          <h2 id="shots-title">See it in action</h2>
+          <div class="shots">
+            <figure>
+              <img src="/lekho/img/screenshot-1-typing.png" width="1280" height="800" loading="lazy"
+                alt="Typing Bangla in an email: the suggestion list shows ভালবাসি first, then ভালোবাসি and the English word" />
+              <figcaption>Types in the page, with the suggestion under the word.</figcaption>
+            </figure>
+            <figure>
+              <img src="/lekho/img/screenshot-2-suggestions.png" width="1280" height="800" loading="lazy"
+                alt="Picking পরীক্ষা, the second suggestion for porikkha, with the down arrow" />
+              <figcaption>↓ and Space pick a dictionary spelling.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="avro-title">
+        <div class="wrap narrow">
+          <h2 id="avro-title">Coming from Avro?</h2>
+          <p>Lekho follows the Ridmik rules. These signs are typed differently from Avro Phonetic:</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Sign</th>
+                  <th scope="col">Bangla</th>
+                  <th scope="col">Lekho (Ridmik)</th>
+                  <th scope="col">Avro</th>
+                </tr>
+              </thead>
+              <tbody id="guide"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="install" aria-labelledby="install-title">
+        <div class="wrap narrow">
+          <h2 id="install-title">Install</h2>
+          <ol class="steps">
+            <li>
+              Download <strong>lekho-&lt;version&gt;.zip</strong> from the
+              <a href="https://github.com/mohas8/lekho/releases/latest">latest release</a> and extract it to a folder you'll
+              keep.
+            </li>
+            <li>Open <code>chrome://extensions</code> (or <code>edge://extensions</code>, <code>brave://extensions</code>) and turn on <strong>Developer mode</strong>.</li>
+            <li>Click <strong>Load unpacked</strong> and choose the extracted folder.</li>
+            <li>On any page, click the Lekho icon or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd>. The badge shows <strong>বাং</strong>.</li>
+          </ol>
+          <p class="cta">
+            <a class="btn primary" href="https://github.com/mohas8/lekho/releases/latest">Download the latest release</a>
+            <a class="btn" href="https://github.com/mohas8/lekho#readme">Read the docs</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="help-title">
+        <div class="wrap narrow">
+          <h2 id="help-title">Help make it exact</h2>
+          <p>
+            If a word comes out differently from Ridmik on your phone,
+            <a href="https://github.com/mohas8/lekho/issues/new?template=wrong-output.yml">report it</a> with what you typed,
+            what Ridmik shows and what Lekho shows. Every report becomes a test case. Ideas and questions are welcome in
+            <a href="https://github.com/mohas8/lekho/discussions">Discussions</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <p>
+          Made by <strong>Md Mobashir Hasan</strong> ·
+          <a href="https://mobashir.dev">mobashir.dev</a> ·
+          <a href="https://github.com/mohas8">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/mohas8">LinkedIn</a>
+        </p>
+        <p class="small">
+          Lekho is open source under the MPL-2.0 license and uses the Ridmik Parser (BSD-3) and the Avro Phonetic
+          dictionary (MPL-2.0). It isn't affiliated with Ridmik Labs or OmicronLab.
+          <a href="https://github.com/mohas8/lekho/blob/main/PRIVACY.md">Privacy</a>
+        </p>
+      </div>
+    </footer>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

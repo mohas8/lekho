@@ -259,6 +259,11 @@ export class SuggestionPopup {
     const vw = win.innerWidth;
     const vh = win.innerHeight;
     const a = anchor ?? new DOMRect(GAP, GAP, 0, 0);
+    // The word scrolled out of view: hide the list rather than pin it to the screen edge.
+    // (Set on the box: its `all: initial` would ignore a value inherited from the host.)
+    const offscreen = a.bottom < 0 || a.top > vh || a.right < 0 || a.left > vw;
+    this.box.style.visibility = offscreen ? 'hidden' : 'visible';
+    if (offscreen) return;
     const w = this.box.offsetWidth;
     const h = this.box.offsetHeight;
 

@@ -13,10 +13,19 @@ export default defineConfig({
   use: {
     trace: 'retain-on-failure',
   },
-  webServer: {
-    command: `npx tsx scripts/fixtures-server.ts --port ${FIXTURE_PORT}`,
-    url: `http://localhost:${FIXTURE_PORT}/health`,
-    reuseExistingServer: !process.env.CI,
-    timeout: 60_000,
-  },
+  webServer: [
+    {
+      command: `npx tsx scripts/fixtures-server.ts --port ${FIXTURE_PORT}`,
+      url: `http://localhost:${FIXTURE_PORT}/health`,
+      reuseExistingServer: !process.env.CI,
+      timeout: 60_000,
+    },
+    {
+      // The website (site/dist, built by npm run site:build).
+      command: 'npx vite preview --config site/vite.config.ts',
+      url: 'http://localhost:4174/lekho/',
+      reuseExistingServer: !process.env.CI,
+      timeout: 60_000,
+    },
+  ],
 });
