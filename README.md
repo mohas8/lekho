@@ -10,6 +10,27 @@ ami korrmo kori   →   আমি কর্ম করি
 
 Website: [mobashir.dev/lekho](https://mobashir.dev/lekho) · Made by [Md Mobashir Hasan](https://mobashir.dev)
 
+## Screenshots
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/gmail-compose.png" alt="Typing Bangla in a Gmail compose window, with the suggestion list showing আনন্দে under the word being typed"></td>
+    <td width="50%"><img src="docs/screenshots/suggestions-notepad.png" alt="Suggestion list on a web notepad: ঝংকারে highlighted first, then ঝঙ্কারে and the English word jhongkare"></td>
+  </tr>
+  <tr>
+    <td><b>Types right in the page</b>: Gmail, with the suggestion under the word.</td>
+    <td><b>Word suggestions</b>: the Ridmik result first, dictionary words next, the English word last.</td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/settings.png" alt="Lekho settings page with switches for word suggestions, remembering choices, Bangla digits and full stop to দাঁড়ি"></td>
+    <td><img src="docs/screenshots/avro-guide.png" alt="Coming from Avro? table comparing Lekho (Ridmik) and Avro input for reph, khondo-to, chandrabindu, hasanta and conjuncts"></td>
+  </tr>
+  <tr>
+    <td><b>Settings</b>: suggestions, remembered choices, Bangla digits, দাঁড়ি.</td>
+    <td><b>Coming from Avro?</b> A side-by-side guide to the signs typed differently.</td>
+  </tr>
+</table>
+
 ## Why
 
 - **Avro for Chrome** only types inside its own popup; you copy the text out. Lekho types in the page itself.
