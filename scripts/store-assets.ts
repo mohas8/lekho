@@ -145,9 +145,9 @@ async function main(): Promise<void> {
     await p1.goto(`${base}/compose1.html`);
     await enable(p1);
     await p1.locator('#t').click();
-    await p1.keyboard.type('amar sOnar bangla, ami tomay ');
-    await p1.keyboard.type('bhalobasi');
-    await waitForWord(p1, 'ভালোবাসি');
+    await p1.keyboard.type('amar sOnar bangla, ami tOmay ');
+    await p1.keyboard.type('bhalObasi');
+    await waitForWord(p1, 'ভালবাসি');
     await p1.waitForTimeout(300);
     await shoot(p1, 'screenshot-1-typing.png');
 
