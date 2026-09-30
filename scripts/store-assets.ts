@@ -145,10 +145,11 @@ async function main(): Promise<void> {
     await p1.goto(`${base}/compose1.html`);
     await enable(p1);
     await p1.locator('#t').click();
-    await p1.keyboard.type('amar sOnar bangla, ami tOmay ');
-    await p1.keyboard.type('bhalObasi');
-    await waitForWord(p1, 'ভালবাসি');
-    await p1.waitForTimeout(300);
+    // হৃদয় ভরে যাক অস্তিত্বের আনন্দে
+    await p1.keyboard.type('hrridoy bhore zak ostitwer ');
+    await p1.keyboard.type('anonde');
+    await waitForWord(p1, 'আনন্দে');
+    await p1.waitForTimeout(1500); // let the dictionary answer arrive
     await shoot(p1, 'screenshot-1-typing.png');
 
     // 2: choosing a suggestion with the arrow key.

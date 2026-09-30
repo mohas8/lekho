@@ -8,13 +8,31 @@
  * mohas8.github.io/lekho/ and when mobashir.dev/lekho/ proxies to it.
  */
 import { defineConfig, type Plugin } from 'vite';
-import { cpSync, mkdirSync } from 'node:fs';
+import { cpSync, mkdirSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, resolve } from 'node:path';
 import { writeDict } from '../scripts/build-dict';
 
 const here = resolve(import.meta.dirname);
 const root = resolve(here, '..');
 const outDir = join(here, 'dist');
+
+/**
+ * Adds ?v=<content hash> to /lekho/img/ URLs in the page, so browsers and
+ * caches fetch a new copy whenever an image changes.
+ */
+function versionImages(): Plugin {
+  return {
+    name: 'lekho-version-images',
+    transformIndexHtml(html) {
+      return html.replace(/\/lekho\/img\/([\w.-]+\.png)/g, (url, file: string) => {
+        const src = file === 'icon128.png' ? join(root, 'static/icons/icon128.png') : join(root, 'docs/store', file);
+        const hash = createHash('sha256').update(readFileSync(src)).digest('hex').slice(0, 10);
+        return `${url}?v=${hash}`;
+      });
+    },
+  };
+}
 
 /** Copies the dictionary and the screenshots into the build. */
 function lekhoAssets(): Plugin {
@@ -38,7 +56,7 @@ export default defineConfig({
   base: '/lekho/',
   publicDir: join(here, 'public'),
   define: { __TEST__: 'false' },
-  plugins: [lekhoAssets()],
+  plugins: [versionImages(), lekhoAssets()],
   build: { outDir, emptyOutDir: true, target: 'es2022', reportCompressedSize: false },
   preview: { port: 4174, strictPort: true },
 });
